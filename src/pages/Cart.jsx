@@ -15,7 +15,7 @@ const Cart = () => {
   return (
     <div className="w-screen">
       {cart.length > 0 ?
-        <div className="flex justify-between bg-red-400">
+        <div className="flex justify-between">
           {/*CartItems*/}
           <div className="w-5/12">
             {cart.map(item => (

@@ -1,13 +1,30 @@
+import { AiFillDelete } from 'react-icons/ai'
+import { removeFromCart } from '../redux/slices/CartSlice.js'
+import { useDispatch } from 'react-redux'
+
 const CartItem = ({ item }) => {
+  const dispatch = useDispatch()
+  const handleRemoveFromCart = () => {
+    dispatch(removeFromCart(item.id))
+  }
+
   return (
-    <div className=" w-full flex flex-col items-center gap-8 bg-black px-8 py-6">
-      <div className="text-xl">{item.title}</div>
+    <div>
       <div>
-        <img className="w-[400px] h-[200px]" src={item.image} alt="product-image"/>
-      </div>
-      <div className="flex justify-between bg-red-400 w-full px-4 py-2">
-        <div>${item.price}</div>
-        <div>delete</div>
+        <div>
+          <img src={item.image} alt="product-image"/>
+        </div>
+        <div>
+          <h1>{item.title}</h1>
+          <h1>{item.description}</h1>
+          <div>
+            <p>{item.price}</p>
+            <button>
+              <AiFillDelete onClick={handleRemoveFromCart}/>
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   )
