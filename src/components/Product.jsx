@@ -17,12 +17,12 @@ const Product = ({ post }) => {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="">
       <div>
         <p>{post.title}</p>
       </div>
       <div>
-        <p>{post.description}</p>
+        <p className="text-center">{post.description.split(' ').slice(0, 10).join('') + '...'}</p>
       </div>
       <div>
         <img src={`${post.image}`} className="w-24 h24"/>
